@@ -28,6 +28,7 @@ https://tthh12.shop
 <img src="https://user-images.githubusercontent.com/96868951/187065547-9434b995-b083-4a2c-bc57-bb656ffcaa21.jpg"/>
 
 ### API 명세서
+<img src="https://user-images.githubusercontent.com/96868951/187066247-f4ca970d-cd04-4773-b97e-753bdfc2787e.png"/>
 
 ### 프로젝트 실행
 ```
