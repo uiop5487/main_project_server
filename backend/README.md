@@ -1,73 +1,72 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+## 채소마켓
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### 프로젝트에 대한 설명
+누구나 판매와 구매를 할 수 있는 채소 마켓
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ npm install
+### 배포 주소
 ```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+https://tthh12.shop
 ```
+### 기술 스택
+<div>
+<img src="https://techstack-generator.vercel.app/ts-icon.svg" alt="icon" width="72" height="72" />
+<img src="https://techstack-generator.vercel.app/js-icon.svg" alt="icon" width="72" height="72" />
+<img src="https://user-images.githubusercontent.com/96868951/187032229-605756c5-0f73-4ef7-972a-5e00988411a9.png" alt="icon" width="72" height="72" />
+<img alt="NestJS" src="https://user-images.githubusercontent.com/96868951/187032538-a3c2656f-a592-4fab-9579-856bff0fb5cd.png" width="60" height="60"/>
+<img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="72" height="72" />
+<img src="https://techstack-generator.vercel.app/graphql-icon.svg" alt="icon" width="72" height="72" />
+<img src="https://techstack-generator.vercel.app/docker-icon.svg" alt="icon" width="72" height="72" />
+<img src="https://user-images.githubusercontent.com/96868951/187036678-55edd632-0600-43f7-8585-d33171943c23.png" width="72" height="72" />
+<img width="72" height="72" alt="GKE" src="https://user-images.githubusercontent.com/96868951/187037131-bf7ad8dc-4b51-4585-92f6-bb2a5fe829c8.png">
+</div>
 
-## Test
+### ERD
+<img src="https://user-images.githubusercontent.com/96868951/187064280-287989d7-90a2-4b26-8c74-f1b6bd4abd06.png"/>
 
-```bash
-# unit tests
-$ npm run test
+### 파이프라인
 
-# e2e tests
-$ npm run test:e2e
+### API 명세서
 
-# test coverage
-$ npm run test:cov
+### 프로젝트 실행
 ```
+1. 레포지토리 포크
+2. Git clone
+3. docker-compose build
+4. docker-compose up
+```
+### 폴더구조
+<div>
+<img src="https://user-images.githubusercontent.com/96868951/187064577-8b2611fa-a6d5-4e47-8fc4-68ab31486d49.png"/>
+</div>
 
-## Support
+elk: 엘라스틱 스택 설정파일 폴더
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+src: 소스코드 폴더
 
-## Stay in touch
+test: 테스트코드 폴더
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+app.module.ts: module 설정 및 주입을 위한 파일
 
-## License
+main.ts: 실핼 및 프로젝트 설정을 위한 파일
 
-Nest is [MIT licensed](LICENSE).
+apis: 실제 api 로직을 모아놓은 폴더
+
+commons: 공통으로 사용되는 로직을 모아놓은 폴더
+
+### env 설정
+```
+DATABASE_TYPE=mysql
+DATABASE_HOST=데이터베이스 ip 또는 이름
+DATABASE_PORT=3306
+DATABASE_USERNAME=아이디 ex) root
+DATABASE_PASSWORD=비밀번호 ex) root
+DATABASE_DATABASE=데이터베이스 이름
+GOOGLE_CLIENT_ID=소셜로그인을 위한 클라이언트 ID
+GOOGLE_CLIENT_SECRET=소셜로그인을 위한 클라이언트 secret
+KAKAKO_CLIENT_ID=카카오 소셜로그인을 위한 클라이언트 ID
+KAKAKO_CLIENT_SECRET=카카오 소셜로그인을 위한 클라이언트 secret
+NAVER_CLIENT_ID=네이버 소셜로그인을 위한 클라이언트 ID
+NAVER_CLIENT_SECRET=네이버 소셜로그인을 위한 클라이언트 secret
+IMP_KEY=결제를 위한 아임포트 KEY
+IMP_SECRET=결제를 위한 아임포트 secret
+```
