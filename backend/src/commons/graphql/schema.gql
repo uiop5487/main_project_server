@@ -1,0 +1,169 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProductMainCategory {
+  id: String!
+  name: String!
+}
+
+type ProductSubCategory {
+  id: String!
+  name: String!
+  maincategory: ProductMainCategory!
+}
+
+type ProductMainType {
+  id: String!
+  name: String!
+}
+
+type ProductSubType {
+  id: String!
+  name: String!
+  maintype: ProductMainType!
+}
+
+type ProductTag {
+  id: String!
+  name: String!
+  products: Product!
+}
+
+type Seller {
+  id: String!
+  name: String!
+  email: String!
+  phone: String!
+  address: String!
+}
+
+type Product {
+  id: String!
+  name: String!
+  contents: String!
+  price: Int!
+  unit: String!
+  volume: String!
+  origin: String!
+  isSoldout: Boolean!
+  isBest: Boolean!
+  isNew: Boolean!
+  productImage: [String!]!
+  createdAt: DateTime!
+  category: ProductSubCategory!
+  type: ProductSubType!
+  tags: [ProductTag!]!
+  seller: Seller!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type User {
+  id: String!
+  name: String!
+  email: String!
+  phone: String!
+  address: String!
+  rank: String!
+  point: Int!
+  createdAt: DateTime!
+}
+
+type PointCharge {
+  id: String!
+  price: Int!
+  status: String!
+  createdAt: DateTime!
+  user: User!
+}
+
+type Query {
+  fetchProducts(search: String): [Product!]!
+  fetchProduct(productId: String!): Product!
+  fetchProductWithDeleted: [Product!]!
+  fetchSellers: [Seller!]!
+  fetchSeller(sellerId: String!): Seller!
+  fetchUsers: [User!]!
+  fetchUser(userId: String!): User!
+  fetchLoginUser: User!
+}
+
+type Mutation {
+  login(email: String!, password: String!): String!
+  logout: String!
+  restoreAccessToken: String!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(productId: String!, updateProductInput: UpdateProductInput!): Product!
+  deleteProduct(productId: String!): Boolean!
+  restoreProduct(productId: String!): Boolean!
+  createPointCharge(impUid: String!, amount: Int!): PointCharge!
+  cancelPoint(impUid: String!): PointCharge!
+  createSeller(createsellerInput: CreateSellerInput!): Seller!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(userEmail: String!, password: String!, updateUserInput: UpdateUserInput!): User!
+  deleteUser(userEmail: String!, password: String!): Boolean!
+  deleteLoginUser(password: String!): Boolean!
+  updateUserPwd(userEmail: String!, password: String!, updatePassword: String!): String!
+  uploadFile(files: [Upload!]!): [String!]!
+}
+
+input CreateProductInput {
+  name: String!
+  contents: String!
+  price: Int!
+  unit: String!
+  volume: String!
+  origin: String!
+  productImage: [String!]
+  productCategoryId: String
+  productTypeId: String
+  sellerId: String
+  tags: [String!]
+}
+
+input UpdateProductInput {
+  name: String
+  contents: String
+  price: Int
+  unit: String
+  volume: String
+  origin: String
+  productImage: [String!]
+  productCategoryId: String
+  productTypeId: String
+  sellerId: String
+  tags: [String!]
+}
+
+input CreateSellerInput {
+  name: String!
+  email: String!
+  password: String!
+  phone: String!
+  address: String!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  phone: String!
+  address: String!
+  rank: String!
+}
+
+input UpdateUserInput {
+  name: String
+  email: String
+  password: String
+  phone: String
+  address: String
+  rank: String
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
