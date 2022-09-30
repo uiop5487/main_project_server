@@ -80,9 +80,9 @@ export class ProductServices {
     });
   }
 
-  async findOne({ prodcutId }) {
+  async findOne({ productId }) {
     return this.prdouctRepository.findOne({
-      where: { id: prodcutId },
+      where: { id: productId },
       relations: [
         'type',
         'category',
@@ -199,9 +199,5 @@ export class ProductServices {
   async restore({ productId }) {
     const retoreResopnse = await this.prdouctRepository.restore(productId);
     return retoreResopnse.affected ? true : false;
-  }
-
-  async asd({ image, product }) {
-    this.productImageService.updateImage({ image, product });
   }
 }

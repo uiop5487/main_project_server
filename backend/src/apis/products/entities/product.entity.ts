@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { ProductImage } from 'src/apis/productsImage/entities/productImage.entity';
 import { ProductSubCategory } from 'src/apis/productsSubCategory/entities/productSubCategory.entity';
 import { ProductSubType } from 'src/apis/productsSubType/entities/productSubType.entity';
 import { ProductTag } from 'src/apis/productsTags/entities/productTag.entity';
@@ -9,11 +8,9 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  JoinColumn,
   JoinTable,
   ManyToMany,
   ManyToOne,
-  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';

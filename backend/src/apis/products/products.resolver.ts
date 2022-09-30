@@ -29,9 +29,9 @@ export class ProductResolvers {
 
   @Query(() => Product)
   fetchProduct(
-    @Args('productId') prodcutId: string, //
+    @Args('productId') productId: string, //
   ) {
-    return this.productServices.findOne({ prodcutId });
+    return this.productServices.findOne({ productId });
   }
 
   @Query(() => [Product])

@@ -30,22 +30,9 @@ export class ProductImageService {
   }
 
   async updateImage({ image, product }) {
-    const findProduct = await this.productImageRepository.find({
-      where: { product: { id: product.id } },
-    });
-
     await this.productImageRepository.delete({
       product: { id: product.id },
     });
-
-    // const file = findProduct.map((el) =>
-    //   el.url.replace('codecamp-backend-storage/', ''),
-    // );
-    // console.log(file);
-
-    // const aaa = await this.fileUploadService.delete({ file });
-
-    // console.log(aaa);
 
     const result = await Promise.all(
       image.map(
