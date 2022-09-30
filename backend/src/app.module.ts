@@ -11,6 +11,8 @@ import { PointChargeModule } from './apis/pointCharge/pointCharge.module';
 import { FilesModule } from './apis/files/files.module';
 import { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
+import { ProductReviewsModule } from './apis/productsReview/productReviews.module';
+import { ProductInquiriesModule } from './apis/productsInquiry/productInquiries.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import * as redisStore from 'cache-manager-redis-store';
     SellerModule,
     UsersModule,
     FilesModule,
+    ProductReviewsModule,
+    ProductInquiriesModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),

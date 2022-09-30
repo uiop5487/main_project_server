@@ -81,6 +81,29 @@ type PointCharge {
   user: User!
 }
 
+type ProductReview {
+  id: String
+  contents: String
+  createdAt: String
+  product: Product!
+  user: User
+  image: [ProductReviewImage!]
+}
+
+type ProductReviewImage {
+  id: String
+  url: String
+  review: ProductReview
+}
+
+type ProductInquiry {
+  id: String
+  contents: String
+  createdAt: DateTime
+  product: Product
+  user: User
+}
+
 type Query {
   fetchProducts(search: String): [Product!]!
   fetchProduct(productId: String!): Product!
@@ -90,6 +113,8 @@ type Query {
   fetchUsers: [User!]!
   fetchUser(userId: String!): User!
   fetchLoginUser: User!
+  fetchReviews(productId: String!): [ProductReview!]!
+  fetchInquiries(productId: String!): [ProductInquiry!]!
 }
 
 type Mutation {
@@ -109,6 +134,12 @@ type Mutation {
   deleteLoginUser(password: String!): Boolean!
   updateUserPwd(userEmail: String!, password: String!, updatePassword: String!): String!
   uploadFile(files: [Upload!]!): [String!]!
+  createReview(createReviewInput: CreateReviewInput!, productId: String!): ProductReview!
+  updateReview(updateReviewInput: UpdateReviewInput!, reviewId: String!): ProductReview!
+  deleteReview(revuewId: String!): Boolean!
+  createInquiry(contents: String!, productId: String!): ProductInquiry!
+  updateInquiry(contents: String!, inquiryId: String!): ProductInquiry!
+  deleteInquiry(inquiryId: String!): Boolean!
 }
 
 input CreateProductInput {
@@ -167,3 +198,13 @@ input UpdateUserInput {
 
 """The `Upload` scalar type represents a file upload."""
 scalar Upload
+
+input CreateReviewInput {
+  contents: String
+  image: [String!]
+}
+
+input UpdateReviewInput {
+  contents: String
+  image: [String!]
+}

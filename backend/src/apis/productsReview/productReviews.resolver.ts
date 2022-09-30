@@ -4,6 +4,8 @@ import { GqlAuthAccessGuard } from 'src/commons/auth/gql-auth.guard';
 import { IContext } from 'src/commons/type/context';
 import { ProductServices } from '../products/products.service';
 import { UsersServices } from '../users/users.service';
+import { CreateReviewInput } from './dto/productReview.input';
+import { UpdateReviewInput } from './dto/updateProductReview.input';
 import { ProductReview } from './entities/productReview.entity';
 import { ProductReviewsService } from './productReviews.service';
 
@@ -25,7 +27,7 @@ export class ProductReviewsResolver {
   @UseGuards(GqlAuthAccessGuard)
   @Mutation(() => ProductReview)
   async createReview(
-    @Args('contents') contents: string, //
+    @Args('createReviewInput') createReviewInput: CreateReviewInput,
     @Args('productId') productId: string,
     @Context() context: IContext,
   ) {
@@ -35,13 +37,17 @@ export class ProductReviewsResolver {
 
     const product = await this.productsService.findOne({ productId });
 
-    return this.productReviewsService.create({ contents, user, product });
+    return this.productReviewsService.create({
+      createReviewInput,
+      user,
+      product,
+    });
   }
 
   @UseGuards(GqlAuthAccessGuard)
   @Mutation(() => ProductReview)
   async updateReview(
-    @Args('contents') contents: string, //
+    @Args('updateReviewInput') updateReviewInput: UpdateReviewInput, //
     @Args('reviewId') reviewId: string,
     @Context() context: IContext,
   ) {
@@ -54,7 +60,7 @@ export class ProductReviewsResolver {
         '작성한 유저만이 수정 가능합니다.',
       );
 
-    return this.productReviewsService.update({ contents, reviewId });
+    return this.productReviewsService.update({ updateReviewInput, reviewId });
   }
 
   @UseGuards(GqlAuthAccessGuard)

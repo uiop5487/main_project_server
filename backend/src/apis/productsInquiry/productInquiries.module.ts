@@ -1,24 +1,22 @@
 import { Module } from '@nestjs/common';
-import { ElasticsearchModule } from '@nestjs/elasticsearch';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FilesService } from '../files/files.service';
 import { Product } from '../products/entities/product.entity';
 import { ProductServices } from '../products/products.service';
 import { ProductImage } from '../productsImage/entities/productImage.entity';
 import { ProductImageService } from '../productsImage/productImage.service';
-import { ProductReviewImage } from '../productsReviewImage/entities/productReviewImage.entity';
 import { ProductTag } from '../productsTags/entities/productTag.entity';
 import { User } from '../users/entities/user.entity';
 import { UsersServices } from '../users/users.service';
-import { ProductReview } from './entities/productReview.entity';
-import { ProductReviewsResolver } from './productReviews.resolver';
-import { ProductReviewsService } from './productReviews.service';
+import { ProductInquiry } from './entities/productInquiry.entity';
+import { ProductInquiriesResolver } from './productInquiries.resolver';
+import { ProductInquiriesService } from './productInquiries.service';
+import { ElasticsearchModule } from '@nestjs/elasticsearch';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      ProductReview, //
-      ProductReviewImage,
+      ProductInquiry, //
       User,
       Product,
       ProductTag,
@@ -29,8 +27,8 @@ import { ProductReviewsService } from './productReviews.service';
     }),
   ],
   providers: [
-    ProductReviewsResolver, //
-    ProductReviewsService,
+    ProductInquiriesResolver, //
+    ProductInquiriesService,
     UsersServices,
     ProductServices,
     ProductImageService,
@@ -38,4 +36,4 @@ import { ProductReviewsService } from './productReviews.service';
     FilesService,
   ],
 })
-export class ProductReviewsModule {}
+export class ProductInquiriesModule {}
