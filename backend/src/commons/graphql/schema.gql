@@ -104,6 +104,14 @@ type ProductInquiry {
   user: User
 }
 
+type ProductInquiryAnswer {
+  id: String
+  contents: String
+  createdAt: DateTime
+  inquiry: ProductInquiry
+  seller: Seller
+}
+
 type Query {
   fetchProducts(search: String): [Product!]!
   fetchProduct(productId: String!): Product!
@@ -140,6 +148,7 @@ type Mutation {
   createInquiry(contents: String!, productId: String!): ProductInquiry!
   updateInquiry(contents: String!, inquiryId: String!): ProductInquiry!
   deleteInquiry(inquiryId: String!): Boolean!
+  createInquiryAnswer(inquiryId: String!, contents: String!): ProductInquiryAnswer!
 }
 
 input CreateProductInput {

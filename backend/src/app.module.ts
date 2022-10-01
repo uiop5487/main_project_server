@@ -13,6 +13,7 @@ import { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
 import { ProductReviewsModule } from './apis/productsReview/productReviews.module';
 import { ProductInquiriesModule } from './apis/productsInquiry/productInquiries.module';
+import { ProductInquiryAnswersModule } from './apis/productsInquiryAnswers/productInquiryAnswers.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ProductInquiriesModule } from './apis/productsInquiry/productInquiries.
     FilesModule,
     ProductReviewsModule,
     ProductInquiriesModule,
+    ProductInquiryAnswersModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
