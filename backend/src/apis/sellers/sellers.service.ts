@@ -14,13 +14,19 @@ export class SellerServices {
     private readonly sellerRepository: Repository<Seller>,
   ) {}
 
-  async findAll() {
+  findAll() {
     return this.sellerRepository.find();
   }
 
-  async findOne({ sellerId }) {
+  findOne({ sellerId }) {
     return this.sellerRepository.findOne({
       where: { id: sellerId },
+    });
+  }
+
+  async findEmail({ email }) {
+    return await this.sellerRepository.findOne({
+      where: { email: email },
     });
   }
 

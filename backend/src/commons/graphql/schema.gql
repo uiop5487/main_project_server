@@ -123,6 +123,7 @@ type Query {
   fetchLoginUser: User!
   fetchReviews(productId: String!): [ProductReview!]!
   fetchInquiries(productId: String!): [ProductInquiry!]!
+  fetchInquiryAnswers(inquiryId: String!): [ProductInquiryAnswer!]!
 }
 
 type Mutation {
@@ -149,6 +150,8 @@ type Mutation {
   updateInquiry(contents: String!, inquiryId: String!): ProductInquiry!
   deleteInquiry(inquiryId: String!): Boolean!
   createInquiryAnswer(inquiryId: String!, contents: String!): ProductInquiryAnswer!
+  updateInquiryAnswer(contents: String!, inquiryAnswerId: String!): ProductInquiryAnswer!
+  deleteInquiryAnswer(inquiryAnswerId: String!): Boolean!
 }
 
 input CreateProductInput {
