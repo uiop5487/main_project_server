@@ -8,12 +8,12 @@ export class FilesService {
 
     const waitedFiles = await Promise.all(files);
 
-    const bucket = 'codecamp-backend-storage';
+    const bucket = 'share-market-bucket';
 
     const storage = new Storage({
-      projectId: 'norse-avatar-358105',
+      projectId: 'endless-orb-364313',
       keyFilename: 'gcp-file-storage.json',
-    }).bucket('codecamp-backend-storage');
+    }).bucket('share-market-bucket');
 
     const results = await Promise.all(
       waitedFiles.map(
@@ -33,7 +33,7 @@ export class FilesService {
   async delete({ file }) {
     const storage = new Storage();
 
-    const bucket = 'codecamp-backend-storage';
+    const bucket = 'share-market-bucket';
 
     const result = await Promise.all(
       file.map(

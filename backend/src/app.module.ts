@@ -47,7 +47,7 @@ import { ProductInquiryAnswersModule } from './apis/productsInquiryAnswers/produ
     }),
     CacheModule.register<RedisClientOptions>({
       store: redisStore,
-      url: 'redis://my-redis:6379',
+      url: process.env.REDIS_URL,
       isGlobal: true,
     }),
   ],
