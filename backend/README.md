@@ -5,7 +5,7 @@
 
 ### 배포 주소
 ```
-https://tthh12.shop
+https://tthh12.shop/graphql
 ```
 ### 기술 스택
 <div>
@@ -21,14 +21,14 @@ https://tthh12.shop
 </div>
 
 ### ERD
-<img src="https://user-images.githubusercontent.com/96868951/187064280-287989d7-90a2-4b26-8c74-f1b6bd4abd06.png"/>
+<img src="https://user-images.githubusercontent.com/96868951/193450061-08d6866a-113f-4dbd-afd7-ed3ff7e550d6.png"/>
 
 ### 파이프라인
 
-<img src="https://user-images.githubusercontent.com/96868951/187065547-9434b995-b083-4a2c-bc57-bb656ffcaa21.jpg"/>
+<img src="https://user-images.githubusercontent.com/96868951/193450021-c7f2cbab-5078-46ba-8080-81b8fd43cd2f.png"/>
 
 ### API 명세서
-<img src="https://user-images.githubusercontent.com/96868951/187066247-f4ca970d-cd04-4773-b97e-753bdfc2787e.png"/>
+<img src="https://user-images.githubusercontent.com/96868951/193449968-2e9be0d8-e7ad-4c24-9ed9-d1fc7a172983.png"/>
 
 ### 프로젝트 실행
 ```
@@ -38,23 +38,148 @@ https://tthh12.shop
 4. docker-compose up
 ```
 ### 폴더구조
-<div>
-<img src="https://user-images.githubusercontent.com/96868951/187064577-8b2611fa-a6d5-4e47-8fc4-68ab31486d49.png"/>
-</div>
-
-elk: 엘라스틱 스택 설정파일 폴더
-
-src: 소스코드 폴더
-
-test: 테스트코드 폴더
-
-app.module.ts: module 설정 및 주입을 위한 파일
-
-main.ts: 실핼 및 프로젝트 설정을 위한 파일
-
-apis: 실제 api 로직을 모아놓은 폴더
-
-commons: 공통으로 사용되는 로직을 모아놓은 폴더
+```
+main-project
+├── Dockerfile
+├── Dockerfile.dev
+├── README.md
+├── docker-compose.dev.yaml
+├── docker-compose.prod.yaml
+├── docker-compose.yaml
+├── elk
+│   └── logstash
+│       ├── logstash.conf
+│       ├── logstash.dev.conf
+│       ├── mysql-connector-java-8.0.28.jar
+│       └── template.json
+├── gcp-bucket-keyfile.json
+├── nest-cli.json
+├── package-lock.json
+├── package.json
+├── src
+│   ├── api
+│   │   ├── auths
+│   │   │   ├── auths.controller.ts
+│   │   │   ├── auths.module.ts
+│   │   │   ├── auths.resolver.ts
+│   │   │   └── auths.service.ts
+│   │   ├── buyProduct
+│   │   │   ├── buyProducts.service.ts
+│   │   │   └── entities
+│   │   │       └──  buyProduct.entity.ts
+│   │   ├── files
+│   │   │   ├── files.module.ts
+│   │   │   ├── files.resolver.ts
+│   │   │   └── files.service.ts
+│   │   │
+│   │   ├── iamport
+│   │   │   └── iamport.service
+│   │   │
+│   │   ├── payments
+│   │   │   └── entities
+│   │   │       └── payments.entity.ts
+│   │   │
+│   │   ├── paymentDetails
+│   │   │   └── entities
+│   │   │       └── paymentDetails.entity.ts
+│   │   ├── pickedProducts
+│   │   │   ├── entities
+│   │   │   │   └── pickedProduct.entity.ts
+│   │   │   └── pickedProducts.service.ts
+│   │   ├── pointCharge
+│   │   │   ├── entities
+│   │   │   │   └── pointCharge.entity.ts
+│   │   │   ├── pointCharge.module.ts
+│   │   │   ├── pointCharge.resolver.ts
+│   │   │   └── pointCharge.service.ts
+│   │   ├── products
+│   │   │   ├── dto
+│   │   │   │   ├── updateProduct.input.ts
+│   │   │   │   └── createProduct.input.ts
+│   │   │   ├── entities
+│   │   │   │   └── product.entity.ts
+│   │   │   ├── products.module.ts
+│   │   │   ├── products.resolver.ts
+│   │   │   └── products.service.ts
+│   │   ├── productImage
+│   │   │   ├── entities
+│   │   │   │   └── productImage.entity.ts
+│   │   │   └── productImage.service.ts
+│   │   ├── productInquiry
+│   │   │   ├── entities
+│   │   │   │   └── productInquiry.entity.ts
+│   │   │   ├── productInquiry.module.ts
+│   │   │   ├── productInquiry.resolver.ts
+│   │   │   └── productInquiry.service.ts
+│   │   ├── productInquiryAnswers
+│   │   │   ├── entities
+│   │   │   │   └── productInquiryAnswer.entity.ts
+│   │   │   ├── productInquiryAnswers.module.ts
+│   │   │   ├── productInquiryAnswers.resolver.ts
+│   │   │   └── productInquiryAnswers.service.ts
+│   │   ├── productMainCategory
+│   │   │   └── entities
+│   │   │       └── productMainCategory.entity.ts
+│   │   ├── productMainType
+│   │   │   └── entities
+│   │   │       └── productMainType.entity.ts
+│   │   ├── productsReview
+│   │   │   ├── dto
+│   │   │   │   ├── updateReview.input.ts
+│   │   │   │   └── createReview.input.ts
+│   │   │   ├── entities
+│   │   │   │   └── productsReview.entity.ts
+│   │   │   ├── productsReview.module.ts
+│   │   │   ├── productsReview.resolver.ts
+│   │   │   └── productsReview.service.ts
+│   │   ├── productReviewImage
+│   │   │   └── entities
+│   │   │       └── productReviewImage.entity.ts
+│   │   ├── productSubCategory
+│   │   │   └── entities
+│   │   │       └── productSubCategory.entity.ts
+│   │   ├── productSubType
+│   │   │   └── entities
+│   │   │       └── productSubType.entity.ts
+│   │   ├── productTags
+│   │   │   └── entities
+│   │   │       └── productTags.entity.ts
+│   │   ├── sellers
+│   │   │   ├── dto
+│   │   │   │   ├── updateSeller.input.ts
+│   │   │   │   └── createSeller.input.ts
+│   │   │   ├── entities
+│   │   │   │   └── seller.entity.ts
+│   │   │   ├── sellers.module.ts
+│   │   │   ├── sellers.resolver.ts
+│   │   │   └── sellers.service.ts
+│   │   ├── users
+│   │   │   ├── dto
+│   │   │   │   ├── updateUser.input.ts
+│   │   │   │   └── createUser.input.ts
+│   │   │   ├── entities
+│   │   │   │   └── user.entity.ts
+│   │   │   ├── users.module.ts
+│   │   │   ├── users.resolver.ts
+│   │   │   └── users.service.ts
+│   ├── app.module.ts
+│   ├── commons
+│   │   ├── auth
+│   │   │   ├── gql-auth.guard.ts
+│   │   │   ├── jwt-access.strategy.ts
+│   │   │   ├── jwt-refresh.strategy.ts
+│   │   │   ├── jwt-social-google.strategy.ts
+│   │   │   ├── jwt-social-kakao.strategy.ts
+│   │   │   └── jwt-social-naver.strategy.ts
+│   │   ├── graphql
+│   │   │   └── schema.gql
+│   │   └── types
+│   │       └── type.ts
+│   └── main.ts
+├── tsconfig.build.json
+├── tsconfig.json
+└── yarn.lock
+```
 
 ### env 설정
 ```
