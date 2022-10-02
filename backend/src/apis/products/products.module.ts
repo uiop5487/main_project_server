@@ -8,6 +8,12 @@ import { Product } from './entities/product.entity';
 import { ProductResolvers } from './products.resolver';
 import { ProductServices } from './products.service';
 import { ElasticsearchModule } from '@nestjs/elasticsearch';
+import { PickedProductsService } from '../pickedProducts/pickedProducts.service';
+import { UsersServices } from '../users/users.service';
+import { PickedProduct } from '../pickedProducts/entities/pickedProduct.entity';
+import { User } from '../users/entities/user.entity';
+import { BuyProductsService } from '../buyProducts/buyProducts.service';
+import { BuyProduct } from '../buyProducts/entities/buyProduct.entity';
 
 @Module({
   imports: [
@@ -16,6 +22,9 @@ import { ElasticsearchModule } from '@nestjs/elasticsearch';
       Product, //
       ProductTag,
       ProductImage,
+      PickedProduct,
+      User,
+      BuyProduct,
     ]),
     ElasticsearchModule.register({
       node: 'http://elasticsearch:9200',
@@ -26,6 +35,9 @@ import { ElasticsearchModule } from '@nestjs/elasticsearch';
     ProductServices,
     ProductImageService,
     FilesService,
+    PickedProductsService,
+    UsersServices,
+    BuyProductsService,
   ],
 })
 export class ProductModules {}

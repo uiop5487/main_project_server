@@ -6,14 +6,14 @@ import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 export class ProductTag {
   @PrimaryGeneratedColumn('uuid')
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   id: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   name: string;
 
   @ManyToMany(() => Product, (products) => products.tags)
-  @Field(() => Product)
+  @Field(() => Product, { nullable: true })
   products: Product[];
 }

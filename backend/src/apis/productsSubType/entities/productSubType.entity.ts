@@ -6,14 +6,14 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 export class ProductSubType {
   @PrimaryGeneratedColumn('uuid')
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   id: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   name: string;
 
   @ManyToOne(() => ProductMainType)
-  @Field(() => ProductMainType)
+  @Field(() => ProductMainType, { nullable: true })
   maintype: ProductMainType;
 }

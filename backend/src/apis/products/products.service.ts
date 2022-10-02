@@ -110,6 +110,26 @@ export class ProductServices {
     });
   }
 
+  findBySolodoutWithSeller({ email }) {
+    return this.prdouctRepository.find({
+      where: {
+        isSoldout: true,
+        seller: { email: email },
+      },
+      relations: {
+        category: {
+          maincategory: true,
+        },
+        type: {
+          maintype: true,
+        },
+        seller: true,
+        tags: true,
+        productImage: true,
+      },
+    });
+  }
+
   async create({ createProductInput }) {
     const { productCategoryId, productTypeId, sellerId, tags, ...product } =
       createProductInput;
@@ -199,5 +219,12 @@ export class ProductServices {
   async restore({ productId }) {
     const retoreResopnse = await this.prdouctRepository.restore(productId);
     return retoreResopnse.affected ? true : false;
+  }
+
+  updateIsSoldOut({ product }) {
+    return this.prdouctRepository.save({
+      ...product,
+      isSoldout: true,
+    });
   }
 }

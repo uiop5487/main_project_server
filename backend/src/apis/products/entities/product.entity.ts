@@ -23,46 +23,42 @@ export class Product {
   id: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   name: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   contents: string;
 
   @Column()
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   price: number;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   unit: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   volume: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   origin: string;
 
   @Column({ default: false })
-  @Field(() => Boolean)
+  @Field(() => Boolean, { nullable: true })
   isSoldout: boolean;
 
   @Column({ default: false })
-  @Field(() => Boolean)
-  isBest: boolean;
+  @Field(() => Int, { nullable: true })
+  isPickedCount: number;
 
-  @Column({ default: false })
-  @Field(() => Boolean)
-  isNew: boolean;
-
-  @Field(() => [String])
+  @Field(() => [String], { nullable: true })
   productImage: string[];
 
   @CreateDateColumn()
-  @Field(() => Date)
+  @Field(() => Date, { nullable: true })
   createdAt: Date;
 
   @DeleteDateColumn()
@@ -72,19 +68,19 @@ export class Product {
   updatedAt: Date;
 
   @ManyToOne(() => ProductSubCategory)
-  @Field(() => ProductSubCategory)
+  @Field(() => ProductSubCategory, { nullable: true })
   category: ProductSubCategory;
 
   @ManyToOne(() => ProductSubType)
-  @Field(() => ProductSubType)
+  @Field(() => ProductSubType, { nullable: true })
   type: ProductSubType;
 
   @JoinTable()
   @ManyToMany(() => ProductTag, (ProductTag) => ProductTag.products)
-  @Field(() => [ProductTag])
+  @Field(() => [ProductTag], { nullable: true })
   tags: ProductTag[];
 
   @ManyToOne(() => Seller)
-  @Field(() => Seller)
+  @Field(() => Seller, { nullable: true })
   seller: Seller;
 }

@@ -80,4 +80,11 @@ export class UsersServices {
       password: hashedPassword,
     });
   }
+
+  updatePoint({ user, price }) {
+    return this.usersRepository.save({
+      ...user,
+      point: user.point - price,
+    });
+  }
 }

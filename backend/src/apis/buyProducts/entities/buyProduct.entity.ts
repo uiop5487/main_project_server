@@ -5,7 +5,7 @@ import { Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 @ObjectType()
-export class PickedProduct {
+export class BuyProduct {
   @PrimaryGeneratedColumn('uuid')
   @Field(() => String, { nullable: true })
   id: string;

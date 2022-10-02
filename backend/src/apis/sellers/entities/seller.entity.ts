@@ -5,15 +5,15 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 export class Seller {
   @PrimaryGeneratedColumn('uuid')
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   id: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   name: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   email: string;
 
   @Column()
@@ -21,10 +21,10 @@ export class Seller {
   password: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   phone: string;
 
   @Column()
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   address: string;
 }

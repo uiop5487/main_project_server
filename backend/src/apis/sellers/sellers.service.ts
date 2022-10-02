@@ -43,4 +43,21 @@ export class SellerServices {
 
     return result;
   }
+
+  async update({ updateSellerInput, email }) {
+    const seller = await this.sellerRepository.findOne({
+      where: { email },
+    });
+
+    return this.sellerRepository.save({
+      ...seller,
+      ...updateSellerInput,
+    });
+  }
+
+  delete({ email }) {
+    return this.sellerRepository.softDelete({
+      email: email,
+    });
+  }
 }
