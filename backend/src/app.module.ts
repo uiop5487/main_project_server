@@ -14,6 +14,7 @@ import * as redisStore from 'cache-manager-redis-store';
 import { ProductReviewsModule } from './apis/productsReview/productReviews.module';
 import { ProductInquiriesModule } from './apis/productsInquiry/productInquiries.module';
 import { ProductInquiryAnswersModule } from './apis/productsInquiryAnswers/productInquiryAnswers.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -51,5 +52,6 @@ import { ProductInquiryAnswersModule } from './apis/productsInquiryAnswers/produ
       isGlobal: true,
     }),
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
